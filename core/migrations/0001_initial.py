@@ -13,16 +13,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='TypeUser',
+            name='ToDo',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('name', models.CharField(max_length=100)),
-                ('highlighted', models.TextField()),
-                ('owner', models.ForeignKey(related_name='payment', to=settings.AUTH_USER_MODEL)),
+                ('fecha_inicio', models.DateTimeField(auto_now=True)),
+                ('fecha_finalizacion', models.DateTimeField()),
+                ('todo', models.TextField()),
+                ('propietario', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-                'ordering': ('created',),
-            },
         ),
     ]
